@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Stocking</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+		<link href="css/styles.css" rel="stylesheet">
+	</head>
+	<body>
+	
+	<div class="wrapper">
+		<div class="box">
+			<div class="row row-offcanvas row-offcanvas-left">
+						  
+				<!-- sidebar -->
+				<div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
+				  
+					<ul class="nav">
+						<li><a href="#" data-toggle="offcanvas" class="visible-xs text-center"><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+					</ul>
+				   
+					<ul class="nav hidden-xs" id="lg-menu">
+						<li class="active"><a id="btn-dashboard" href="#dashboard"><i class="glyphicon glyphicon-list-alt"></i> 看版</a></li>
+						<li><a href="#stories"><i class="glyphicon glyphicon-list"></i> 信號</a></li>
+						<li><a href="#"><i class="glyphicon glyphicon-paperclip"></i> 設定</a></li>
+						<li><a id="btn-Refresh" role="button"><i class="glyphicon glyphicon-refresh"></i> 更新</a></li>
+					</ul>
+					<ul class="list-unstyled hidden-xs" id="sidebar-footer">
+						<li>
+						  <a href="https://trello.com/b/RosklSPy/stocking"><h3>Stocking</h3> <i class="glyphicon glyphicon-heart-empty"></i> Bootply</a>
+						</li>
+					</ul>
+				  
+					<!-- tiny only nav-->
+				  <ul class="nav visible-xs" id="xs-menu">
+						<li><a href="#featured" class="text-center"><i class="glyphicon glyphicon-list-alt"></i></a></li>
+						<li><a href="#stories" class="text-center"><i class="glyphicon glyphicon-list"></i></a></li>
+						<li><a href="#" class="text-center"><i class="glyphicon glyphicon-paperclip"></i></a></li>
+						<li><a href="#" class="text-center"><i class="glyphicon glyphicon-refresh"></i></a></li>
+					</ul>
+				  
+				</div>
+				<!-- /sidebar -->
+			  
+				<!-- main right col -->
+				<div class="column col-sm-10 col-xs-11" id="main">
+					
+					<!-- top nav -->
+					<div class="navbar navbar-blue navbar-static-top">  
+						<div class="navbar-header">
+						  <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+							<span class="sr-only">Toggle</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						  </button>
+						  <a href="/" class="navbar-brand logo">b</a>
+						</div>
+						<nav class="collapse navbar-collapse" role="navigation">
+						<div class="navbar-form navbar-left">
+							<div class="input-group input-group-sm" style="max-width:360px;">
+							  <input id="search-text" type="text" class="form-control" placeholder="Search">
+							  <div class="input-group-btn">
+								<button id="btn-search" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+							  </div>
+							</div>
+						</div>
+						<ul class="nav navbar-nav">
+						  <li>
+							<a id="btn-searchRecord" href="#"><span class="badge">搜尋結果</span></a>
+						  </li>
+						  <!--
+						  <li>
+							<a href="#"><i class="glyphicon glyphicon-home"></i> Home</a>
+						  </li>
+						 -->
+						  <li>
+							<a href="#helpModel" role="button" data-toggle="modal"><i class="glyphicon glyphicon-comment"></i> 說明</a>
+						  </li>
+						  
+						</ul>
+						<ul class="nav navbar-nav navbar-right">						  
+						  <li class="dropdown">
+							<a  id="loginBtn" class="dropdown-toggle" href="#">&nbsp;<i class="glyphicon glyphicon-user"> Login</i>&nbsp;&nbsp;&nbsp;</a>
+							<ul class="dropdown-menu">
+							  <li><a href="#phoneNumModal" role="button" data-toggle="modal" id="phoneNumBtn">設定手機號碼</a></li>
+							  <li><a role="button" id="logoutBtn">Logout</a></li>
+							</ul>
+						  </li>
+						</ul>
+						</nav>
+					</div>
+					<!-- /top nav -->
+				  
+					<div class="padding">
+						<div class="full col-sm-9">
+						  
+							<!-- content -->                      
+							<div class="row">
+							 <!-- main col left --> 
+							 <div  id="stockView-parent" class="column col-sm-7">
+								  <div id="stockView-templete" class="panel panel-default hidden">
+									<div class="panel-heading ">
+										<button id="stockClose" class="btn btn-sm pull-right">X</button>
+										<button id="stockExtra" class="btn btn-primary btn-sm pull-right">加入看版</button>										
+										<h4><i id="stockTitle" class=""> 2330.TW</i></h4>
+									 </div>
+									 
+									  <div class="panel-body row">
+										<div class="list-group col-sm-6"">
+											<img id="stockImg" href="#picModal" role="button" data-toggle="modal" src="" width='100%'></img>
+										</div>
+										<div class="list-group col-sm-6"">
+										  <a id="lasttitle">最新</a>
+										  <a id="lastday" href="#" class="list-group-item">loading..</a>
+										  <hr/>
+										  <a id="buytitle">買入訊號</a>
+										  <a id="lastbuy" href="#" class="list-group-item list-group-item-danger">loading..</a>
+										  <a id="selltitle">賣出訊號</a>
+										  <a id="lastsell" href="#" class="list-group-item list-group-item-success">loading..</a>										  
+										</div>
+									  </div>
+								  </div>
+							  </div>							  
+							  <!-- main col right -->
+							  <div class="column col-sm-5">
+								  <div class="panel panel-default">
+									<div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>最新訊號</h4></div>
+									  <div class="panel-body">
+										<div id="stockSingals" class="list-group">
+										</div>
+									  </div>
+								  </div>
+							  </div>
+						   </div><!--/row-->
+						  
+							<div class="row">
+							  <div class="col-sm-6">
+							  <!--
+								<a href="#">Twitter</a> <small class="text-muted">|</small> <a href="#">Facebook</a> <small class="text-muted">|</small> <a href="#">Google+</a>
+								-->
+							  </div>
+							</div>						  
+							<div class="row" id="footer">    
+							  <div class="col-sm-6">
+							  </div>
+							  <div class="col-sm-6">
+								<p>
+								<a href="#" class="pull-right">©yingkai</a>
+								</p>
+							  </div>
+							</div>
+						  <hr>
+						  
+						  <h4 class="text-center">
+						  
+						  </h4>
+							
+						  <hr>
+							
+						  
+						</div><!-- /col-9 -->
+					</div><!-- /padding -->
+				</div>
+				<!-- /main -->
+			  
+			</div>
+		</div>
+	</div>
+
+
+	<!--post modal-->
+	<div id="phoneNumModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+	  <div class="modal-dialog">
+	  <div class="modal-content">
+		  <div class="modal-header">
+			  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				設定手機號碼
+				<div> 輸入國碼的手機號碼，只支援台灣(+886)</div>
+		  </div>
+		  
+		  <div id="currPhoneNum">目前設定:</div>
+		  <div class="modal-body">
+			  <form class="form center-block">
+				<div class="form-group">
+				  <input id="txtPhoneNum" class="form-control input-lg" autofocus="" placeholder="+886123456789"></input>
+				</div>
+			  </form>
+		  </div>
+		  <div class="modal-footer">
+			  <div>
+			  <button id="btnSendPhoneNum" class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">送出</button>
+			  </div>	
+		  </div>
+	  </div>
+	  </div>
+	</div>
+	<!--pic modal-->
+	<div id="picModal" class="modal modal-wide fade" tabindex="-1" role="dialog" aria-hidden="true">
+	  <div class="modal-dialog">
+	  <div class="modal-content">
+		  <div class="modal-body">
+			  <form class="form center-block">
+				<div class="form-group">
+					<img id="picModalImg" src=""></img>
+				</div>
+			  </form>
+		  </div>
+	  </div>
+	  </div>
+	</div>
+	<!--help modal-->
+	<div id="helpModel" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+	  <div class="modal-dialog">
+	  <div class="modal-content">
+		  <div class="modal-header">
+			  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				說明<br/><br/>
+				 1.登入後才會記錄個人看版<br/>
+				 2.使用搜尋功能找到目標股票代號，再將之加入看版<br/>
+				 3.登記手機號碼，星期1-5早上8:00會檢查買賣訊號以簡訊通知<br/>
+		  </div>
+	  </div>
+	  </div>
+	</div>
+	<!-- script references -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>		
+		<script src="js/scripts.js"></script>
+		<script src="js/fb.js"></script>
+		
+		<script src="js/stockView.js"></script>		
+		<script src="js/dashboard.js"></script>
+		<script src="js/main.js"></script>		
+	</body>
+</html>
